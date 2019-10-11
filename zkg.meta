@@ -1,0 +1,8 @@
+[package]
+version = 0.1
+tags = notice, configuration, ezeekonfigurator, ezk 
+script_dir = scripts
+description = This script enables easy customation of how notice actions are handled.  It's built to work with eZeekConfigurator, but that isn't required. 
+test_command = cd tests && btest -d notice_tests
+depends =
+	zeek >=3.0.0-rc1

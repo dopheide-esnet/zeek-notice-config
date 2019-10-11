@@ -1,0 +1,1 @@
+@load ./notice-config.zeek

@@ -1,0 +1,3 @@
+Should LOG,ALARM	Notice::Debug_Notice
+Should LOG,PAGE	Notice::Debug_Notice2
+Should not BHR due to neighbor_nets	Notice::Debug_Notice4
