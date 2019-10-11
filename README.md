@@ -1,17 +1,21 @@
-# zeek-notice-config
+zeek-notice-config
+==================
 
 This script enables easy customation of how notice actions are handled.
 It's built to work with eZeekConfigurator, but that isn't required and can
 be configured with a normal script.
 
+Actions
+-------
 Notices can be configured with five different "actions", some of which
 correspond to Zeek internal Notice::ACTION types.
-LOG - (default) Sets Notice::ACTION_LOG which logs to notice.log
-IGNORE - Ignores the notice and won't even log it.
-ALARM -Sets Notice::ACTION_ALARM which logs to notice-alarm.log
-PAGE - Sets Notice::ACTION_PAGE which you can handle how you see fit 
-BHR - Sets Notice::ACTION_BHR (not built in) which you can handle later.
-      This will only be set if Notice::ACTION_BHR has been previously defined.
+
+	LOG - (default) Sets Notice::ACTION_LOG which logs to notice.log
+	IGNORE - Ignores the notice and won't even log it.
+	ALARM -Sets Notice::ACTION_ALARM which logs to notice-alarm.log
+	PAGE - Sets Notice::ACTION_PAGE which you can handle how you see fit 
+	BHR - Sets Notice::ACTION_BHR (not built in) which you can handle later.
+      	      This will only be set if Notice::ACTION_BHR has been previously defined.
 
 Note, the current commonly used BHR scripts also set ACTION_BHR, but do not
 process a black hole route based on that action existing.
@@ -21,13 +25,14 @@ horrible way to alert enginners to a problem.
 
 Each notice configuration element is built from an NC_Info record consisting
 of up to four pieces of information:
-$src:  A set of source subnets that will be matched against the notice src.
-$src_in: A set of strings containing variable names whose contents  will be
+
+	$src:  A set of source subnets that will be matched against the notice src.
+	$src_in: A set of strings containing variable names whose contents  will be
 	matched against the notice src.  For instance, you can match
 	against "Site::local_nets" without having the duplicate the source
 	nets.
-$note: A set of Notice::Types to match against.
-$action: A set of the above available notice-config actions
+	$note: A set of Notice::Types to match against.
+	$action: A set of the above available notice-config actions
 
 The notice_cfg itself is a vector of NC_Info.  This means it is ordered and
 the first match will be processed for each notice.
